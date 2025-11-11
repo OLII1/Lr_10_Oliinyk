@@ -1,0 +1,110 @@
+:root { --tile-size: 160px; }
+* { box-sizing: border-box; }
+
+body {
+  background: #1b1b1b;
+  color: #eee;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container { width: 740px; text-align: center; }
+
+.machine {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin: 18px 0 8px;
+}
+
+.reel-frame {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) * 3);
+  background: linear-gradient(#666, #444);
+  border: 6px solid #3b3b3b;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.6) inset;
+  position: relative;
+}
+
+.reel-frame::after,
+.reel-frame::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  left: 0;
+}
+.reel-frame::after { top: calc(var(--tile-size) - 2px); }
+.reel-frame::before { top: calc(var(--tile-size) * 2 - 2px); }
+
+.reel {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  transition: transform 700ms cubic-bezier(.22,.9,.3,1);
+}
+.reel img {
+  display: block;
+  width: 100%;
+  height: var(--tile-size);
+  object-fit: cover;
+  user-select: none;
+}
+
+#spinBtn {
+  background: linear-gradient(#0f0,#0a0);
+  color: #022;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.4);
+}
+#spinBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+#result { font-size: 20px; margin-top: 12px; }
+
+.modal {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40,40,40,0.98);
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 15px 25px;
+  z-index: 100;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  display: none;
+}
+.top-modal { top: 40px; }
+
+.modal-content.small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.modal-content input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #222;
+  color: #eee;
+}
+.modal-content button {
+  padding: 6px 20px;
+  background: linear-gradient(#0f0,#0a0);
+  color: #022;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
