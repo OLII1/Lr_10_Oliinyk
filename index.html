@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Лабораторна робота №10</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="nameModal" class="modal top-modal">
+<div class="modal-content small">
+<p id="modalText">Введіть, будь ласка, ім’я:</p>
+<input type="text" id="nameInput" placeholder="Ваше ім’я" />
+<button id="nameOk">OK</button>
+</div>
+</div>
+
+<div class="container">
+<h1 id="userTitle">Користувач</h1>
+<p id="attemptInfo">Спроба 0 з 3</p>
+
+<div class="machine">
+<div class="reel-frame">
+<div class="reel" id="reel1"></div>
+</div>
+<div class="reel-frame">
+<div class="reel" id="reel2"></div>
+</div>
+<div class="reel-frame">
+<div class="reel" id="reel3"></div>
+</div>
+</div>
+
+<div class="controls">
+<button id="spinBtn">Крутити</button>
+</div>
+
+<p id="result"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
